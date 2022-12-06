@@ -8,7 +8,7 @@
 #include "Practical.h"
 #include <unistd.h>
 
-#define HOME_PAGE "HTTP/1.1 200 File Found\r\nContent-Length: 125\r\nConnection:close\r\n\r\n<HTML><HEAD><TITLE>FileFound</TITLE></HEAD><BODY><h2>FILE Found</h2><hr><p>Your requested FILEwas found.</p></BODY></HTML>"
+#define HOME_PAGE "HTTP/1.1 200 File Found\r\nContent-Length: 124\r\nConnection: close\r\n\r\n<HTML><HEAD><TITLE>File Found</TITLE></HEAD><BODY><h2>FILE Found</h2><hr><p>This file was sent by James' Awesome HTTP Server.</p></BODY></HTML>"
 
 #define ERROR_PAGE "HTTP/1.1 404 File Not Found\r\nContent-Length:215\r\nConnection: close\r\n\r\n<HTML><HEAD><TITLE>File NoFound</TITLE></HEAD><BODY><h2>FILE Not Found</h2><hr><p>Your requestedFILE was not found.</p></BODY></HTML>"
 
