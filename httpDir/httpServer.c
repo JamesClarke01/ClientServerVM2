@@ -105,10 +105,14 @@ int main(int argc, char *argv[])
 			printf("Path requested\n");
 
 			snprintf(sendbuffer, sizeof(sendbuffer), HOME_PAGE); //put in outgoing buffer
-			ssize_t numBytesSent = send(clntSock, sendbuffer, strlen(sendbuffer),0);// send to the client
+		}
+		else
+		{
+			snprintf(sendbuffer, sizeof(sendbuffer), ERROR_PAGE);
+		}	
 
-
-		}		
+		ssize_t numBytesSent = send(clntSock, sendbuffer, strlen(sendbuffer),0);// send to the client
+		
 
 
 		close(clntSock); //close client socket
