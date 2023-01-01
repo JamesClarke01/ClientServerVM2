@@ -85,16 +85,23 @@ int main(int argc, char *argv[])
 			recvbuffer[numBytes] = '\0'; //null terminate the recieve buffer
 		
 			
+			
+			//as client won't close the connection,
+			//this is needed to escape the loop or recv() will
+			//halt the program waiting for a new request forever
 			if (strstr(recvbuffer, "\r\n\r\n") > 0)
 			{
 				break;
 			}
+			
 			
 		}
 		if(numBytes < 0)
 		{
 			DieWithSystemMessage("recv() failed");
 		}		
+		
+
 		
 		
 
