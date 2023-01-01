@@ -62,19 +62,6 @@ int main(int argc, char *argv[]) {
         }
         if (numBytes < 0)
                 DieWithSystemMessage("recy() failed");
-        else if (numBytes ==0)
-                DieWithUserMessage("recy()", "connection closed prematurely");
-
-	//send
-	char message[] =
-"\n=============================\n\n\
-Welcome to the greatest server of all time!\n\n\
-%.24s\r\n\n\
-=============================\n\n";
-	snprintf(sendbuffer, sizeof(sendbuffer), message, ctime(&ticks)); //Create data and time string in outgoing buffer
-	ssize_t numBytesSent = send(clntSock, sendbuffer, strlen(sendbuffer), 0); //Send date and time string to the client 
-	if (numBytesSent < 0)
-		DieWithSystemMessage("send() failed");
 
 	close(clntSock); // Close client socket
 
