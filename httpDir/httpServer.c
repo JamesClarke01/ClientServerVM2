@@ -73,25 +73,30 @@ int main(int argc, char *argv[])
 		{
 			DieWithSystemMessage("accept() failed");
 		}
-
-		//client socket is connected to a client!
 		
+		//client socket is connected to a client!
+				
+
 		//recieve
 		//recieve all data up to the buffer size-1, then stick a null terminator on the end
 		while((numBytes = recv(clntSock, recvbuffer, BUFSIZE - 1, 0)) > 0)
 		{
+		
 			recvbuffer[numBytes] = '\0'; //null terminate the recieve buffer
-			
-						
-			fputs(recvbuffer, stdout);
+		
 			
 			if (strstr(recvbuffer, "\r\n\r\n") > 0)
 			{
 				break;
 			}
-		}
-		
 			
+		}
+		if(numBytes < 0)
+		{
+			DieWithSystemMessage("recv() failed");
+		}		
+		
+		
 
 		//extracting HTTP components
 		sscanf( recvbuffer, "%s %s %s", cmd, path, vers);

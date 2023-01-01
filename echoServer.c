@@ -52,6 +52,8 @@ int main(int argc, char *argv[]) {
 	// clntSock is connected to a client!
 
 	//recieve
+	//The server will then stay in this while loop, FOREVER, 
+	//until the client or server program is stopped!!!
 	while((numBytes = recv(clntSock, recvbuffer, BUFSIZE - 1, 0)) > 0)
         {
                 recvbuffer[numBytes] = '\0'; // Terminate the string!
